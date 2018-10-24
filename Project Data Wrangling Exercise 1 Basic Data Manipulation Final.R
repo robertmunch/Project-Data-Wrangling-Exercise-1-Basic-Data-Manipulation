@@ -31,6 +31,7 @@ refine_clean <- refine_original %>%
   mutate(product_laptop = ifelse(product_code == "x", 1, 0)) %>% 
   mutate(product_tablet = ifelse(product_code == "q", 1, 0))
   
+write.csv(refine_clean,'refine_clean.csv')
 
 
 
