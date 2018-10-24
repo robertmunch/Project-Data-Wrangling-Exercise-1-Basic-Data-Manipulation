@@ -19,7 +19,7 @@ refine_original <- refine_original %>%
   refine_original$company[21:25] <- "van houten" #changing mispellings of van houten
 
 refine_clean <- refine_original %>% 
-  separate('Product code / number', c("product_code", "product_number"), sep = "-") %>% #generates product code and product number columns
+  separate("Product code / number", c("product_code", "product_number"), sep = "-") %>% #generates product code and product number columns
   mutate(full_address = paste(address, city, country, sep=", ")) %>% #creates full address column from address, city and country
   mutate(product_category = code_to_category(c(product_code))) %>% #uses created function at the top to generate product category column
   mutate(company_philips = ifelse(company == "phillips", 1, 0)) %>% #Next four lines create binary columns for company names
@@ -31,7 +31,7 @@ refine_clean <- refine_original %>%
   mutate(product_laptop = ifelse(product_code == "x", 1, 0)) %>% 
   mutate(product_tablet = ifelse(product_code == "q", 1, 0))
   
-write.csv(refine_clean,'refine_clean.csv')
+write.csv(refine_clean,"refine_clean.csv")
 
 
 
